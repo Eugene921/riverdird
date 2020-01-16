@@ -1,0 +1,49 @@
+.slider {
+  background-color: #000;
+}
+.slider::after {
+  border-left-color: #fff;
+  border-right-color: #fff;
+}
+
+.slider article {
+  max-width: 1440px;
+  margin: auto;
+}
+.slider_wrapper {
+  margin: auto;
+  width: 80%;
+  min-width: 300px;
+}
+#viveport {
+  margin: auto;
+  position: relative;
+  overflow: scroll;
+  width: min-content;
+  height: 70vh;
+}
+
+#viveport img {
+  width: auto;
+  height: 100%;
+}
+
+#slider {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: auto;
+}
+
+#slider div {
+  width: 10%;
+  margin: 3px;
+}
+
+#slider div img {
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+}

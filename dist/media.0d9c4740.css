@@ -1,0 +1,108 @@
+@media screen and (max-width: 850px) {
+  section > div {
+    flex-direction: column;
+  }
+  section > div > div {
+    width: 100%;
+  }
+  .practical_img {
+    background-position-x: -30px;
+  }
+  #slider {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 650px) {
+  .nav_social {
+    display: none;
+  }
+  .menu_logo {
+    left: 0;
+  }
+  .slider_wrapper {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .form_for_buy {
+    width: 80%;
+  }
+  .form_product_img {
+    display: none;
+  }
+  #return {
+    right: 0px;
+    bottom: 10px;
+  }
+  #slider div {
+    width: 16%;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .practical_img {
+    background-position-x: -55px;
+    background-size: 220%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .practical_img {
+    background-position-x: -55px;
+    background-size: 220%;
+  }
+  .header_content .super_present {
+    font-size: 28px;
+    line-height: 1;
+  }
+  .header_content h1 {
+    font-size: 43px;
+    line-height: 1;
+  }
+  .header_content .peints_and_buff {
+    line-height: 1;
+    font-size: 22px;
+  }
+  .header_content .peints_and_buff span {
+    font-size: 32px;
+    line-height: 1.6;
+  }
+  .header_content .until_graduation {
+    font-size: 16px;
+  }
+  .header_content .timer {
+    font-size: 42px;
+    line-height: 0.3;
+    word-spacing: 0;
+  }
+  .header_content .timer_description {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  .pants_img {
+    background-position: -70px 0px;
+  }
+  section h2 {
+    font-size: 24px;
+  }
+  .pickUpSet h2 {
+    font-size: 44px;
+  }
+  .pickUpSet h3 {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 385px) {
+  .practical_img {
+    background-position-x: -63px;
+    background-size: 240%;
+  }
+
+  #slider div {
+    width: 30%;
+  }
+}
+
+
+/*# sourceMappingURL=/media.0d9c4740.css.map */

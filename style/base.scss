@@ -1,0 +1,66 @@
+$lightBlue: rgb(0, 183, 255);
+$darkBlue: rgb(6, 0, 41);
+
+$lightBlue_opacity_9: rgb(0, 183, 255, 0.9);
+$darkBlue-opacity_6: rgba(6, 0, 41, 0.6);
+$darkBlue-opacity_2: rgba(6, 0, 41, 0.4);
+
+%oll_font {
+  color: white;
+}
+
+%font_smoll {
+  font-size: 12px;
+  line-height: 1;
+
+  @extend %oll_font;
+}
+
+%font_normal {
+  font-size: 18px;
+  line-height: 1;
+
+  @extend %oll_font;
+}
+
+%font_large {
+  font-size: 28px;
+  line-height: 1;
+
+  @extend %oll_font;
+}
+
+%font_extralarge {
+  font-size: 42px;
+  line-height: 1;
+
+  @extend %oll_font;
+}
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10vh;
+  @media screen and (max-width: 550px) {
+    top: 70px;
+  }
+}
+.sticky:before,
+.sticky:after {
+  content: '';
+  display: table;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+@import 'reset';
+@import 'media';
+@import 'header';
+@import 'section';
+@import 'form_buy';

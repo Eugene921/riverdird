@@ -1,0 +1,95 @@
+.section_buy_closse {
+  display: none;
+}
+
+.section_buy {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 100vh;
+  z-index: 100;
+  background-color: $darkBlue-opacity_6;
+  overflow-y: scroll;
+
+  > div {
+    position: relative;
+    background-color: #ffffff;
+    width: max-content;
+    margin: auto;
+    padding: 0px;
+    color: $darkBlue;
+    font-family: 'PT Sans Caption';
+    line-height: 26px;
+    border: 1px solid orange;
+
+    background: linear-gradient(45deg, #0084ff, #24aadb, #27dbb1, #ffdc18);
+    background-size: 600% 100%;
+    animation: gradient 16s linear infinite;
+    animation-direction: alternate;
+  }
+  @media screen and (max-width: 500px) {
+    width: 90%;
+  }
+
+  // @media screen and (min-width: 1440px) {
+  //   width: 1000px;
+  //   margin: 10vh auto 0px;
+  // }
+
+  .form_buy_btn_closse {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 30px;
+    border: none;
+    font-weight: 900;
+    background-color: transparent;
+    padding: 0px;
+  }
+
+  .form_buy_btn_closse:hover {
+    color: orange;
+  }
+
+  .block_thanks {
+    display: none;
+  }
+  form {
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+
+    input {
+      display: inline-block;
+      width: min-content;
+      padding: 10px 20px;
+      margin: 5px;
+      border: 1px solid $lightBlue;
+      background-color: #e8f0fe;
+      font-size: 16px;
+    }
+    input:hover {
+      border-color: $darkBlue;
+    }
+    input:focus {
+      border-color: orange;
+    }
+
+    #form_buy_btn_submit {
+      margin-top: 20px;
+      background: #162138;
+      border-color: orange;
+      color: orange;
+      box-shadow: 0px 0px 10px -2px #162138;
+    }
+    #form_buy_btn_submit:hover {
+      background: orange;
+      border-color: #162138;
+      color: #162138;
+    }
+    #form_buy_btn_submit:active {
+      box-shadow: 0px 0px 10px -2px #162138 inset;
+      font-size: 15px;
+    }
+  }
+}
