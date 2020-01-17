@@ -2,18 +2,21 @@
   "name": "riverbird",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "dev": "parcel index.html",
-    "build": "parcel run-script build index.html --port 80"
+    "build": "parcel build index.html --out-dir ~apple/Sites/ParcelTest/ --public-url /ParcelTest/",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": [
+    "dist"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cssnano": "^4.1.10",
-    "sass": "^1.24.4"
-  },
-  "dependencies": {
-    "stickyfilljs": "^2.1.0"
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "autoprefixer": "^9.7.4",
+    "sass": "^1.24.5"
   }
 }
