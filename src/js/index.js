@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+  window.onload = () => {
+    setTimeout(() => {
+      document.getElementById('preloader').classList.remove('preloader');
+    }, 200);
+  }
 //   const form = document.getElementById('order_form');
 
 //   const productQuantityAdd = document.getElementById('product_quantity_add');
@@ -200,19 +205,105 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // section_buy{
 
-// }
+  // console.dir(window.innerHeight);
+  // console.dir(window.outerHeight);
+  // console.dir(window.clientHeight);
+
+  // console.dir(elem);
+  // console.log(elem.clientHeight);
+  // console.log(elem.offsetTop);
+  // console.log(elem.classList);
+  // console.log(elem.id);
+  // console.log((elem.clientHeight + elem.offsetTop) - (window.scrollY + 81));
+  // console.log(window.scrollY + window.innerHeight - elem.offsetTop);
+  // console.log('             ');
+  const
+      headlineQuestion = document.getElementById('headline_question'),
+      orderForm = document.getElementById('order_form'),
+      description = document.getElementById('description'),
+      headline = document.getElementById('headline'),
+      accessories = document.getElementById('accessories'),
+      specifications = document.getElementById('specifications');
+
+  const isVisible = (elem) => {
+  const 
+      up = (elem.clientHeight + elem.offsetTop) - (window.scrollY + 81) > 100,
+      down = window.scrollY + window.innerHeight - elem.offsetTop > 250;
+
+  if (up && down) {
+      elem.classList.add(`${elem.id}_active`);
+  } else {
+      elem.classList.remove(`${elem.id}_active`);
+  }
+
+  return up && down;
+}
+
+window.onscroll = () => {
+    isVisible(headlineQuestion);
+    isVisible(description);
+    isVisible(headline);
+    isVisible(orderForm);
+    isVisible(accessories);
+    isVisible(specifications);
+}
 
 
 // phone_btn_order
 // btn_order
 
 // section_buy
+const btnAsk = document.getElementById('btn_ask');
+const btnBuy = document.getElementById('btn_order');
+
+const postAlert = () => {
+  let check = true;
+
+  const call = (func, delay) => {
+    setTimeout(() => {
+      if(check) func();
+    }, delay);
+  }
+
+  const timerStart = () => {
+    call(() => btnAsk.classList.add('btn_ask_alert'), 2000);
+    call(() => btnAsk.classList.remove('btn_ask_alert'), 7000);
+    call(() => btnBuy.classList.add('btn_order_alert'), 12000);
+    call(() => btnBuy.classList.remove('btn_order_alert'), 17000);
+    setTimeout(timerStart, 40000);
+  };
+  timerStart();
+
+  btnAsk.addEventListener('mouseover', () => {
+    btnBuy.classList.remove('btn_order_alert');
+    btnAsk.classList.add('btn_ask_alert');
+    check = false;
+  });
+
+  btnAsk.addEventListener('mouseout', () => {
+    btnAsk.classList.remove('btn_ask_alert');
+    check = true;
+  });
+
+  btnBuy.addEventListener('mouseover', () => {
+    btnAsk.classList.remove('btn_ask_alert');
+    btnBuy.classList.add('btn_order_alert');
+      check = false;
+    });
+  
+  btnBuy.addEventListener('mouseout', () => {
+    btnBuy.classList.remove('btn_order_alert');
+    check = true;
+  });
+}
+
+postAlert();
+
 
 
 //###################### section buy ##############################
 const sectionBuy = document.getElementById('section_buy');
 const phoneBtnBuy = document.getElementById('phone_btn_order');
-const btnBuy = document.getElementById('btn_order');
 const btnClosseBuy = document.getElementById('form_buy_btn_closse');
 
 phoneBtnBuy.addEventListener('click', () => {
@@ -246,4 +337,6 @@ btnClosseBuy.addEventListener('click', () => {
 
 });
 
+import './slider';
+import './API_form';
 import '../style/base.scss';

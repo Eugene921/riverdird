@@ -1,0 +1,122 @@
+.specifications_img,
+.description div .description_img,
+.accessories div .accessories_img {
+  margin: 0px 10px 100px;
+  position: sticky;
+  height: 75vh;
+  background-color: white;
+
+  @media screen and (max-width: 600px) {
+    margin: 0px;
+    width: 100%;
+    height: 40vh;
+    order: -1;
+    margin-bottom: -40vh;
+  }
+
+  #description_viev_port,
+  #accessories_viev_port,
+  #specifications_viev_port {
+    position: relative;
+    width: 100%;
+
+    img {
+      transition: 1s;
+      width: 100%;
+      height: 80vh;
+      max-height: 900px;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      opacity: 0;
+
+      @media screen and (max-width: 870px) {
+        height: 65vh;
+      }
+
+      @media screen and (max-width: 600px) {
+        height: 40vh;
+        width: 50%;
+        min-width: 300px;
+        margin: auto;
+        margin-left: calc(50vw - 150px);
+      }
+    }
+    .slider_view {
+      opacity: 1;
+    }
+  }
+
+  .description_bar,
+  .specifications_bar,
+  .accessories_bar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: absolute;
+    left: -15px;
+    z-index: 1;
+
+
+
+    li {
+      list-style: none;
+      width: 50px;
+      height: 50px;
+      padding: 0px;
+      margin-left: 5px;
+      border: 1px solid $lightBlue;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      flex-direction: column;
+      height: 40vh;
+      top: 0px;
+
+      li {
+        width: 30px;
+        height: 30px;
+        margin-left: 5px;
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  .description_bar{
+    bottom: -120px;
+  }
+  .specifications_bar {
+    bottom: -150px;
+  }
+  .accessories_bar {
+    top: 0px;
+  }
+  @media screen and (max-width: 870px) {
+  .description_bar{
+    bottom: -100px;
+  }
+  }
+}
+.specifications_img{
+  background-color: $lightBlue;
+
+  .specifications_bar{
+    li {
+      border: 1px solid white;
+    }
+  }
+}
+
+.description_img,
+.accessories_img {
+  margin: 0px 10px;
+}
+
+.specifications_img {
+  margin-left: 20px;
+}

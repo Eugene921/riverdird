@@ -40,8 +40,9 @@ $darkBlue-opacity_2: rgba(6, 0, 41, 0.4);
   position: -webkit-sticky;
   position: sticky;
   top: 10vh;
-  @media screen and (max-width: 550px) {
-    top: 70px;
+
+  @media screen and (max-width: 600px) {
+    top: 60vh;
   }
 }
 .sticky:before,
@@ -59,8 +60,41 @@ $darkBlue-opacity_2: rgba(6, 0, 41, 0.4);
   }
 }
 
+.preloader {
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: rgb(0, 162, 255);
+}
+
+.preloader::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: calc(50% - 50px);
+  top: calc(50% - 50px);
+  height: 100px;
+  width: 100px;
+  border: 5px solid white;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  animation: 1s spin linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @import 'reset';
+@import 'slider';
 @import 'media';
 @import 'header';
+@import 'slider';
 @import 'section';
 @import 'form_buy';

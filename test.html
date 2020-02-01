@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form class="form_for_buy" action="" method="post" id="form_for_buy">
+      <label for="buy_name">Прізвище Ім'я</label>
+      <input type="text" name="name" id="buy_name" required />
+
+      <label for="buy_phone">Номер телефону</label>
+      <input type="tel" name="bay_phone" id="buy_phone" required />
+
+      <label for="buy_email">Електронна скринька</label>
+      <input type="email" name="email" id="buy_email" required />
+
+      <!-- <label for="buy_area">Район</label>
+      <input type="text" name="area" id="buy_area" list="area" required /> -->
+
+      <label for="city">Місто</label>
+      <input type="text" name="city" id="city" list="listCitiesNP" required />
+
+      <label for="warehouseIndex">Номер відділення Нової Пошти</label>
+      <input
+        type="text"
+        name="warehouseIndex"
+        id="warehouseIndex"
+        list="listWarehouseNP"
+        required
+      />
+
+      <input id="form_buy_btn_submit" type="submit" value="Замовити" />
+    </form>
+
+    <style>
+      .form_for_buy {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .form_for_buy input {
+        width: 200px;
+        margin: 20px;
+        padding: 15px;
+        font-size: 14px;
+        border: 1px solid skyblue;
+        outline: none;
+      }
+    </style>
+
+    <script src="./src/js/API_form.js"></script>
+  </body>
+</html>

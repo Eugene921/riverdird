@@ -2,19 +2,15 @@
   width: 100%;
   height: 100vh;
 
-  // background: $lightBlue url(../img/header_fon.jpg) no-repeat center;
-  // background-size: cover;
-  background: linear-gradient(45deg, #f17c58, #e94584, #24aadb, #27dbb1, #ffdc18, #ff3706);
-  background-size: 600% 100%;
-  animation: gradient 16s linear infinite;
-  animation-direction: alternate;
+  background: $lightBlue url(../img/Edit3.jpg) no-repeat center;
+  background-size: cover;
 
   font-family: 'Alice', serif;
   .menu {
     font-family: 'PT Sans Caption', sans-serif;
     position: fixed;
     width: 100%;
-    z-index: 1;
+    z-index: 1000;
 
     a:visited,
     a:link,
@@ -25,18 +21,17 @@
     }
 
     .phone_menu {
-      transform: translateY(-150vh);
       transition: 1s;
       display: flex;
       position: fixed;
-      bottom: 0px;
-      height: calc(100vh - 70px);
+      top: -150vh;
+      height: 100vh;
       width: 250px;
       flex-direction: column;
       justify-content: space-between;
       padding-left: 30px;
 
-      background-image: linear-gradient($darkBlue-opacity_2 0%, rgba(6, 0, 41, 0.9));
+      background-image: linear-gradient(rgba(6, 0, 41, 0.8), rgba(6, 0, 41, 0.95));
 
       @extend %font_large;
 
@@ -44,16 +39,14 @@
         display: flex;
         flex-direction: column;
         overflow: scroll;
-        margin-top: 50px;
+        margin-top: 80px;
         border-left: 1px solid $lightBlue;
 
         @media screen and (max-height: 650px) {
-          margin-top: 20px;
           font-size: 20px;
         }
 
         @media screen and (max-height: 550px) {
-          margin-top: 10px;
           font-size: 16px;
           .phone_list_item {
             margin-bottom: 0px;
@@ -91,14 +84,15 @@
         }
       }
     }
-    @media screen and (max-width: 1075px) {
+    @media screen and (max-width: 1000px) {
       .phone_menu_active {
-        transform: translateY(0);
+        top: 0px;
       }
     }
 
     .menu_list {
       height: 70px;
+      background-color: transparent;
       background-image: linear-gradient($darkBlue-opacity_6, $darkBlue-opacity_2);
       width: 100%;
       max-width: 1440px;
@@ -108,6 +102,9 @@
       justify-content: space-between;
       align-items: center;
       padding: 0px 20px;
+      @media screen and (max-width: 1000px) {
+        background-image: none;
+      }
 
       .btn_phone_menu {
         display: none;
@@ -121,13 +118,15 @@
         .bar1,
         .bar2,
         .bar3 {
+          transition: 0.5s;
           width: 28px;
           height: 3px;
           background-color: white;
+          box-shadow: 0px 0px 5px 0px black;
           margin: 5px 0;
         }
 
-        @media screen and (max-width: 1075px) {
+        @media screen and (max-width: 1000px) {
           display: inline-block;
         }
       }
@@ -152,7 +151,7 @@
         img {
           width: 70px;
         }
-        @media screen and (max-width: 1075px) {
+        @media screen and (max-width: 1000px) {
           position: absolute;
           right: 20px;
         }
@@ -164,11 +163,16 @@
         text-transform: uppercase;
         li {
           margin: 0px 20px;
+
+          @media screen and (max-width: 1100px) {
+            margin: 0px 15px;
+            font-size: 15px;
+          }
         }
         li a:hover {
           color: $lightBlue;
         }
-        @media screen and (max-width: 1075px) {
+        @media screen and (max-width: 1000px) {
           display: none;
         }
       }
@@ -180,29 +184,20 @@
         right: 40px;
 
         li {
-          margin: 0px 2px;
-          height: 30px;
-          font-size: 22px;
-          width: 30px;
-          background-color: white;
-          border-radius: 50%;
-          text-align: center;
-          line-height: 32px;
+          margin: 0px 5px;
+          font-size: 24px;
 
           a:visited,
           a:link,
           a {
-            color: black;
+            color: white;
           }
-        }
-        li:hover {
-          background-color: $darkBlue-opacity_6;
         }
         li:hover a {
           color: $lightBlue;
         }
 
-        @media screen and (max-width: 1075px) {
+        @media screen and (max-width: 1000px) {
           display: none;
         }
       }
@@ -251,38 +246,54 @@
       bottom: 110px;
       background-color: rgba(255, 196, 0, 0.9);
       box-shadow: 0px 0px 10px -4px black;
-      @media screen and (max-width: 500px) {
-        height: 75px;
-        line-height: 75px;
-        width: 75px;
-        font-size: 30px;
-        bottom: 130px;
-        right: 30px;
-      }
+      // @media screen and (max-width: 500px) {
+      //   height: 60px;
+      //   line-height: 60px;
+      //   width: 60px;
+      //   font-size: 25px;
+      //   bottom: 110px;
+      //   right: 25px;
+      // }
     }
-    #btn_order:hover::after,
-    #btn_ask:hover::after {
+
+    .btn_order_alert::after,
+    .btn_ask_alert::after {
       cursor: pointer;
-      content: 'Gets or sets whether the text layout grid uses two dimensions.';
       display: block;
       position: relative;
-      line-height: 14px;
+      line-height: 15px;
       border: 1px solid orange;
       color: black;
-      padding: 30px;
+      padding: 15px 20px;
       border-radius: 50px;
       border-bottom-right-radius: 0px;
-      width: min-content;
-      left: -110px;
-      bottom: 190px;
+      width: 145px;
+      left: -180px;
+      bottom: 120px;
 
-      font-size: 12px;
+      font-size: 13px;
       background-color: white;
+
+      @media screen and (max-width: 500px) {
+        padding: 10px 15px;
+        line-height: 13px;
+        font-size: 11px;
+        left: -85px;
+        bottom: 140px;
+        width: min-content;
+      }
     }
 
-    #btn_ask:hover::after {
-      content: 'Gets or sets whether the text layout grid uses two dimensions.';
+    .btn_order_alert::after {
+      content: 'Для перегляду кошика і оформлення замовлення натисніть тут';
+    }
+
+    .btn_ask_alert::after {
+      content: 'Якщо виникло питання залиште заявку натиснувши тут';
       border: 1px solid $lightBlue;
+      @media screen and (max-width: 500px) {
+        bottom: 150px;
+      }
     }
 
     #btn_order:hover,
@@ -309,6 +320,13 @@
     text-align: center;
     @extend %font_extralarge;
     text-shadow: 0px 0px 10px black;
+    h1 {
+      transition: 2s;
+      transform: translateY(100px);
+    }
+    .headline_active {
+      transform: translateY(0px);
+    }
     p {
       @extend %font_normal;
     }
@@ -316,12 +334,15 @@
       cursor: pointer;
       font-size: 18px;
       position: absolute;
+      text-decoration: none;
       bottom: 30px;
       left: calc(50% - 74px);
       border-bottom: 1px solid transparent;
       color: $lightBlue;
+      opacity: 0.3;
     }
     #btn_learn_detailed:hover {
+      opacity: 0.5;
       border-bottom: 1px solid $lightBlue;
     }
   }

@@ -12,6 +12,7 @@
     <script src="./src/js/index.js" defer></script>
   </head>
   <body id="body">
+    <div id="preloader" class="preloader"></div>
     <header class="header" id="header">
       <nav class="menu">
         <div class="phone_menu" id="phone_menu">
@@ -19,23 +20,24 @@
             <li class="phone_list_item"><a href="#description">опис</a></li>
             <li class="phone_list_item"><a href="#description">комплект</a></li>
             <li class="phone_list_item"><a href="#specifications">характеристики</a></li>
-            <li class="phone_list_item"><a href="#accessories">аксесуари</a></li>
+            <li class="phone_list_item"><a href="#accessories">додатково</a></li>
             <li class="phone_list_item"><a href="#question">питання</a></li>
             <li class="phone_list_item"><a href="#footer">контакти</a></li>
+            <li class="phone_list_item"><a href="https://ontop-extreme.com.ua/blog">блог</a></li>
             <li class="phone_list_item" id="phone_btn_order"><a href="#section_buy">заказати</a></li>
           </ul>
           <ul class="phone_social_list">
             <li>
-              <a href=""><i class="fab fa-instagram"></i></a>
+              <a href="https://www.instagram.com/ontop_extreme/"><i class="fab fa-instagram"></i></a>
             </li>
             <li>
-              <a href=""><i class="fab fa-facebook-square"></i></a>
+              <a href="https://www.facebook.com/groups/489630721218594/?ref=bookmarks"><i class="fab fa-facebook-square"></i></a>
             </li>
             <li>
               <a href=""><i class="fab fa-telegram-plane"></i></a>
             </li>
             <li>
-              <a href=""><i class="fab fa-google"></i></a>
+              <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to&su=%D0%9D%D0%B0%D1%88%D0%B8+%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D1%8B+-+OnTop+Extreme+Shop,+%D0%9F%D0%BE%D0%BB%D1%82%D0%B0%D0%B2%D0%B0&body=https://ontop-extreme.com.ua/%25D0%25BA%25D0%25BE%25D0%25BD%25D1%2582%25D0%25B0%25D0%25BA%25D1%2582%25D1%258B%23.Xi3u4LLhy6U.gmail&ui=2&tf=1"><i class="fab fa-google"></i></a>
             </li>
           </ul>
         </div>
@@ -53,24 +55,25 @@
               <li class=""><a href="#description">опис</a></li>
               <li class=""><a href="#description">комплект</a></li>
               <li class=""><a href="#specifications">характеристики</a></li>
-              <li class=""><a href="#accessories">аксесуари</a></li>
+              <li class=""><a href="#accessories">додатково</a></li>
               <li class=""><a href="#question">питання</a></li>
+              <li class=""><a href="https://ontop-extreme.com.ua/blog">блог</a></li>
               <li class=""><a href="#footer">контакти</a></li>
             </ul>
           </li>
           <li class="menu_item nav_social">
             <ul class="menu_social_item">
               <li>
-                <a href=""><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/ontop_extreme/"><i class="fab fa-instagram"></i></a>
               </li>
               <li>
-                <a href=""><i class="fab fa-facebook-square"></i></a>
+                <a href="https://www.facebook.com/groups/489630721218594/?ref=bookmarks"><i class="fab fa-facebook-square"></i></a>
               </li>
               <li>
                 <a href=""><i class="fab fa-telegram-plane"></i></a>
               </li>
               <li>
-                <a href=""><i class="fab fa-google"></i></a>
+                <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to&su=%D0%9D%D0%B0%D1%88%D0%B8+%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D1%8B+-+OnTop+Extreme+Shop,+%D0%9F%D0%BE%D0%BB%D1%82%D0%B0%D0%B2%D0%B0&body=https://ontop-extreme.com.ua/%25D0%25BA%25D0%25BE%25D0%25BD%25D1%2582%25D0%25B0%25D0%25BA%25D1%2582%25D1%258B%23.Xi3u4LLhy6U.gmail&ui=2&tf=1"><i class="fab fa-google"></i></a>
               </li>
             </ul>
           </li>
@@ -79,8 +82,8 @@
         <a id="btn_ask" class="tooltip" href="#question">?</a>
       </nav>
       <div class="header_content">
-        <h1>Lorem ipsum dolor sit amet consectetur.</h1>
-        <a id="btn_learn_detailed" href="#description">Изучить подробней</a>
+        <h1 id="headline">Найкращі байдарки для всієї родини</h1>
+        <a id="btn_learn_detailed" href="#description">Вивчити детально</a>
       </div>
     </header>
     <main>
@@ -104,18 +107,29 @@
             <input id="form_buy_btn_closse" class="form_buy_btn_closse" type="button" value="╳" />
             <div>
               <h3>Ваше замовлення:</h3>
-              <p>Для придбання набору натисніть "Замовити"</p>
+              <p>Байдарка Riverbed в комплекті:</p>
+                <ul style="list-style: disc;">
+                  <li>Байдарка</li>
+                  <li>Насос</li>
+                  <li>Сумка-чохол</li>
+                  <li>Три сидіння</li>
+                  <li>Рем. комплект</li>
+                </ul>
+                <label for="" class="form_product_quantity">Кількість:
+                  <input type="button" value="-" id="product_quantity_remove" />
+                  <span id="product_quantity">1</span>
+                  <input type="button" value="+" id="product_quantity_add" />
+                </label>
+
+              <p>Додаткове спорядження:</p>
+              <ul class="list_buy_accessories">
+                <li><a href="">Дадати</a></li>
+              </ul>
               <img src="" alt="" class="form_product_img" />
-              <label for="" class="form_product_quantity">
-                Кількість:
-                <input type="button" value="-" id="product_quantity_remove" />
-                <span id="product_quantity">1</span>
-                <input type="button" value="+" id="product_quantity_add" />
-              </label>
-              <p>Сума: <span id="form_price">699</span>грн</p>
+              <p>Сума: <span id="form_price">16 500</span>грн</p>
               <br />
             </div>
-            <label for="buy_name">Ім'я прізвище</label>
+            <label for="buy_name">Прізвище Ім'я</label>
             <input type="text" name="buy_name" id="buy_name" required />
   
             <label for="bay_phone">Номер телефону</label>
@@ -137,23 +151,39 @@
           <div>
             <h2>Опис</h2>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis totam sequi,
-              repellendus doloribus aspernatur obcaecati consequuntur vero unde enim,
-              quasi ratione dolorem dicta quaerat quam, harum modi nam qui sunt.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis totam sequi,
-              repellendus doloribus aspernatur obcaecati consequuntur vero unde enim,
-              quasi ratione dolorem dicta quaerat quam, harum modi nam qui sunt.
-            </p>
-            <h3 id="complement">Комплект</h3>
+              Тримісна надувна байдарка Riverbіrd від виробника.
+              Виготовлена за всіма технологіями. Подорожувати комфортно та безпечно.
+              Зручна в експлуатації для сімейних мандрівок. Байдрка має достатньо місця для речей. Дуже комфортні надувні сидіння. Для безпечної подорожі байдарка Riverberd має чотири окремих надувних відсіка та надувне днище.
+              Переваги нашоі байдарки - невелика вага та компактність в зібраному стані.
+              <br>
+              Додатково разом з байдаркою можна замовити : <a href="#accessories">гермомішки</a> та  <a href="#accessories">весла</a>.
+              <br>
+              <br>
+              Виробник-Украина.
+              <br>
+              <br>
+              <span style="font-size: 20px;">Гарантійний темін використання- 12 місяців.</span>
+              </p>
               <ul>
-                <li>item</li>
-                <li>item</li>
-                <li>item</li>
-                <li>item</li>
-                <li>item</li>
-                <li>item</li>
+                <li><span id="complement" style="font-size: 14px;">Комплект:</span></li>
+                <li>Байдарка</li>
+                <li>Насос</li>
+                <li>Три сидіння</li>
+                <li>Сумка-чохол</li>
+                <li>Рем. комплект</li>
               </ul>
           </div>
+          <div class="description_img sticky">
+            <div id="description_viev_port"></div>
+            <ul class="description_bar"  id="description_bar">
+              <li><img src="./src/img/slider1/1.jpg" alt="1" title="0" /></li>
+              <li><img src="./src/img/slider1/2.jpg" alt="2" title="1" /></li>
+              <li><img src="./src/img/slider1/3.jpg" alt="3" title="2" /></li>
+              <li><img src="./src/img/slider1/4.jpg" alt="4" title="3" /></li>
+              <li><img src="./src/img/slider1/5.jpg" alt="5" title="4" /></li>
+              <li><img src="./src/img/slider1/6.jpg" alt="6" title="5" /></li>
+              <li><img src="./src/img/slider1/7.jpg" alt="7" title="6" /></li>
+            </ul>
           </div>
         </div>
       </section>
@@ -161,16 +191,17 @@
       <section class="specifications" id="specifications">
         <div>
           <div class="specifications_img sticky">
-            <ul class="specifications_bar">
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
-              <li>4</li>
-              <li>5</li>
-              <li>6</li>
-              <li>7</li>
-              <li>8</li>
-              <li>9</li>
+            <div id="specifications_viev_port"></div>
+            <ul class="specifications_bar"  id="specifications_bar">
+              <li><img src="./src/img/slider2/1.jpg" alt="1" title="0" /></li>
+              <li><img src="./src/img/slider2/2.jpg" alt="2" title="1" /></li>
+              <li><img src="./src/img/slider2/3.jpg" alt="3" title="2" /></li>
+              <li><img src="./src/img/slider2/4.jpg" alt="4" title="3" /></li>
+              <li><img src="./src/img/slider2/5.jpg" alt="5" title="4" /></li>
+              <li><img src="./src/img/slider2/6.jpg" alt="6" title="5" /></li>
+              <li><img src="./src/img/slider2/7.jpg" alt="7" title="6" /></li>
+              <li><img src="./src/img/slider2/8.jpg" alt="8" title="7" /></li>
+              <li><img src="./src/img/slider2/9.jpg" alt="9" title="8" /></li>
             </ul>
           </div>
 
@@ -178,37 +209,29 @@
             <h2>Характеристики</h2>
             <ul>
               <li>
-                <h4>Main attribute</h4>
+                <h4>Габарити та місткість</h4>
                 <ul>
-                  <li><big>under attribute:</big> value </li>
-                  <li><big>under attribute:</big> 
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Accusantium velit aut odit tempora cupiditate sed fugit est accusamus cum libero optio, harum excepturi dolore,
-                    voluptatibus impedit deserunt sunt. Pariatur, itaque. </li>
-                  <li><big>under attribute:</big> value </li>
+                  <li><big>Довжина зовнішня:</big> 522см </li>
+                  <li><big>Ширина зовнішня:</big> 93.5см </li>
+                  <li><big>Діаметр борту:</big> 30см </li>
+                  <li><big>Кількість  гермовідсіків:</big> 4 </li>
+                  <li><big>Пасажиромісткість:</big> 3 </li>
+                  <li><big>Грузопідйомність:</big> 400кг </li>
                 </ul>
               </li>
               <li>
-                <h4>Main attribute</h4>
+                <h4>Якість матеріалу</h4>
                 <ul>
-                  <li><big>under attribute:</big> 
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias illum recusandae iusto laboriosam nostrum,
-                    odio quos sit iure ex quo deleniti sint totam cum corrupti. Aliquam perferendis doloremque illo quia? </li>
-                  <li><big>under attribute:</big> value </li>
-                  <li><big>under attribute:</big> 
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde error libero eum! Sed maxime atque nam nesciunt voluptate.
-                    Dolorum fugit ipsum sed minima pariatur. Facilis dicta consequatur reiciendis asperiores similique. </li>
+                  <li><big>Щільність материалу днища:</big> гр/м2 Арморований ПВХ 850г/м.кв. </li>
                 </ul>
               </li>
               <li>
-                <h4>Main attribute</h4>
+                <h4>Гарантії</h4>
                 <ul>
-                  <li><big>under attribute:</big> value </li>
-                  <li><big>under attribute:</big> value </li>
-                  <li><big>under attribute:</big>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Laboriosam, reprehenderit porro perferendis
-                    dolorem minima fuga alias vitae quod non quidem cum hic quasi provident perspiciatis rerum nostrum a, consequatur eum! </li>
+                  <li>
+                    Ми гарантуємо якість всіх швів та достатню щільність
+                    матеріалу при дотриманні Правил експлуатації байдарки.
+                  </li>
                 </ul>
               </li>
           </div>
@@ -218,72 +241,54 @@
       <section class="accessories" id="accessories">
         <div>
           <div>
-            <h2>Аксесуари</h2>
+            <h2>Додатково</h2>
             <ul>
               <li>
-                <h4>Item</h4>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam corporis tempora adipisci, aliquam,
-                  incidunt alias quasi nisi sequi perspiciatis quisquam a pariatur. A iste error sunt, magnam animi voluptates cupiditate!</p>
+                <h4>Гермомішок 70л</h4>
+                <p>Зручний для сплаву гермомішок для Ваших речей.
+                  В комплектації може бути або ручка для переносу, або дві лямки, типу "рюкзак"</p>
+                  <button><span>Додати в </span><i class="fas fa-shopping-bag"></i></button>
               </li>
               <li>
-                <h4>Item</h4>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam corporis tempora adipisci, aliquam</p>
+                <h4>Гермомішок 10л</h4>
+                <p>Зручний для сплаву гермомішок для дрібничок або фото. Ручка регулюється по довжині.</p>
+                <button><span>Додати в </span><i class="fas fa-shopping-bag"></i></button>
+
               </li>
               <li>
-                <h4>Item</h4>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam corporis tempora adipisci, aliquam,
-                  incidunt alias quasi nisi sequi perspiciatis quisquam a pariatur. A iste error sunt, magnam animi voluptates cupiditate!</p>
+                <h4>Весла</h4>
+                <p>Пропонуємо придбати комплект весел для Вашої подорожі.</p>
+                  <button><span>Додати в </span><i class="fas fa-shopping-bag"></i></button>
+
               </li>
-              <li>
+              <!-- <li>
                 <h4>Item</h4>
                 <p>Lorem ipsum A iste error sunt, magnam animi voluptates cupiditate!</p>
-              </li>
-              <li>
-                <h4>Item</h4>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. A iste error sunt, magnam animi voluptates cupiditate!</p>
-              </li>
+                <button><span>Додати в </span><i class="fas fa-shopping-bag"></i></button>
+              </!-->
             </ul>
           </div>
 
           <div class="accessories_img sticky">
-            <ul class="accessories_bar">
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
-              <li>4</li>
-              <li>5</li>
+            <div id="accessories_viev_port"></div>
+            <ul class="accessories_bar" id="accessories_bar">
+              <!-- <li><img src="./src/img/slider3/1.jpg" alt="1" title="0" /></li> -->
+              <li><img src="./src/img/slider3/2.jpg" alt="1" title="0" /></li>
+              <li><img src="./src/img/slider3/3.jpg" alt="2" title="1" /></li>
+              <li><img src="./src/img/slider3/4.jpg" alt="3" title="2" /></li>
             </ul>
           </div>
         </div>
       </section>
-
-      <!-- <section class="slider" id="foto">
-        <article>
-          <div class="slider_wrapper">
-            <div id="viveport"><img /></div>
-            <div id="slider">
-              <div><img src="./img/slider/1.jpeg" /></div>
-              <div><img src="./img/slider/2.jpeg" /></div>
-              <div><img src="./img/slider/3.jpeg" /></div>
-              <div><img src="./img/slider/4.jpeg" /></div>
-              <div><img src="./img/slider/5.jpeg" /></div>
-              <div><img src="./img/slider/6.jpeg" /></div>
-              <div><img src="./img/slider/7.jpeg" /></div>
-              <div><img src="./img/slider/8.jpeg" /></div>
-              <div><img src="./img/slider/9.jpeg" /></div>
-            </div>
-          </div>
-        </article>
-      </!-->
-
       <section class="question" id="question">
         <div>
           <div>
-            <h2>Якщо виникли питання, залишайте заявку і ми Вам зателефонуємо</h2>
+            <h2 id="headline_question">Якщо виникли питання, залишайте заявку і ми Вам зателефонуємо</h2>
             <form action="" method="post" id="order_form" class="order_form">
               <input
                 type="text"
                 name="name"
+                autocomplete="off"
                 id="name"
                 placeholder="Ваше ім'я"
                 class="question_name"
@@ -298,8 +303,20 @@
                 class="question_phone"
                 required
               />
+              <input
+                type="email"
+                name="email"
+                id="question_email"
+                autocomplete="off"
+                placeholder="Електронна скринька"
+                class="question_email"
+              />
+              <textarea name="question_description" id="question_description" 
+                autocomplete="off"
+                class="question_description" 
+              placeholder="Опишіть в чому полягає ваше питання" cols="30" rows="10"></textarea>
 
-              <input type="submit" class="question_btn" id="question_btn" value="Оставить заявку" />
+              <input type="submit" class="question_btn" id="question_btn" value="Залишити заявку" />
             </form>
           </div>
         </div>
@@ -310,27 +327,51 @@
       <div>
         <div class="footer_contact">
           <ul>
-            <li><b>Контакты:</b></li>
-            <li><b>Адресса:</b> Lorem ipsum dolor</li>
-            <li><b>Почта:</b> dnkshop2020@gmail.com</li>
-            <li><b>Номер:</b> +095 839 98 93</li>
+            <li><b>Контакти:</b></li>
+            <li><b>Адресса:</b> Місто Полтава, вул. М. Бірюзова 15, ТЦ "Під мостом"</li>
+            <li><b>Пошта:</b> office@ontop-extreme.com.ua</li>
+            <li><b>Номер:</b> +380 66 276 6255</li>
+            <li><b>Керівник Проєку - Наталия:</b>+38 (095) 824-27-74</li>
           </ul>
 
         <span class="footer_sign">© 2020 Sisyphus</span>
         </div>
         <div>
+          <ul class="other">
+            <li><b>Наші проекти:</b></li>
+            <li><a href="https://ontopwake.com.ua/">OnTop – Wake Park</a></li>
+            <li><a href="https://ontop-extreme.com.ua/%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9-%D0%BE%D1%82%D0%B4%D1%8B%D1%85/%D0%B2%D0%BE%D0%B4%D0%BD%D1%8B%D0%B5-%D0%BF%D0%BE%D1%85%D0%BE%D0%B4%D1%8B">Водні походи</a></li>
+            <li><a href="https://ontop-extreme.com.ua/%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9-%D0%BE%D1%82%D0%B4%D1%8B%D1%85/%D0%B3%D0%BE%D1%80%D0%BD%D0%BE%D0%BB%D1%8B%D0%B6%D0%BD%D1%8B%D0%B9-%D0%BE%D1%82%D0%B4%D1%8B%D1%85">Гірськолижний відпочинок</a></li>
+            <li><a href="https://ontop-extreme.com.ua/%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9-%D0%BE%D1%82%D0%B4%D1%8B%D1%85/%D0%BA%D0%BE%D1%80%D0%BF%D0%BE%D1%80%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9-%D0%BE%D1%82%D0%B4%D1%8B%D1%85">Корпоративний відпочинок</a></li>
+            <li><a href="https://ontop-extreme.com.ua/%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9-%D0%BE%D1%82%D0%B4%D1%8B%D1%85/%D0%BF%D0%BE%D1%85%D0%BE%D0%B4%D1%8B-%D1%81-%D0%B4%D0%B5%D1%82%D1%8C%D0%BC%D0%B8">Походи з дітьми</a></li>
+            <li><a href="https://ontop-extreme.com.ua/%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9-%D0%BE%D1%82%D0%B4%D1%8B%D1%85/%D0%BF%D0%B5%D1%88%D0%B8%D0%B5-%D0%BC%D0%B0%D1%80%D1%88%D1%80%D1%83%D1%82%D1%8B">Піші маршрути</a></li>
+            <li><a href="https://ontop-extreme.com.ua/%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9-%D0%BE%D1%82%D0%B4%D1%8B%D1%85/%D1%8D%D0%BA%D1%81%D0%BA%D1%83%D1%80%D1%81%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D0%B5-%D1%82%D1%83%D1%80%D1%8B">Екскурсійні тури</a></li>
+            <li><a href="https://ontop-extreme.com.ua/%D0%BF%D1%80%D0%BE%D0%BA%D0%B0%D1%82-%D1%81%D0%BD%D0%B0%D1%80%D1%8F%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F/%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82-%D0%BB%D1%8B%D0%B6-%D0%B8-%D1%81%D0%BD%D0%BE%D1%83%D0%B1%D0%BE%D1%80%D0%B4%D0%BE%D0%B2">Ремонт лиж і сноубордів</a></li>
+          </ul>
+        </div>
+        <div>
+          <ul class="other">
+            <li><b>Прокат:</b></li>
+            <li><a href="https://ontop-extreme.com.ua/%D0%BF%D1%80%D0%BE%D0%BA%D0%B0%D1%82-%D1%81%D0%BD%D0%B0%D1%80%D1%8F%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F/%D0%BF%D1%80%D0%BE%D0%BA%D0%B0%D1%82-%D0%BB%D1%8B%D0%B6-%D0%B8-%D1%81%D0%BD%D0%BE%D1%83%D0%B1%D0%BE%D1%80%D0%B4%D0%BE%D0%B2">Лиж і сноубордів</a></li>
+            <li><a href="https://ontop-extreme.com.ua/%D0%BF%D1%80%D0%BE%D0%BA%D0%B0%D1%82-%D1%81%D0%BD%D0%B0%D1%80%D1%8F%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F/%D0%BF%D1%80%D0%BE%D0%BA%D0%B0%D1%82-%D0%B1%D0%B0%D0%B9%D0%B4%D0%B0%D1%80%D0%BE%D0%BA">Байдарок</a></li>
+            <li><a href="https://ontop-extreme.com.ua/%D0%BF%D1%80%D0%BE%D0%BA%D0%B0%D1%82-%D1%81%D0%BD%D0%B0%D1%80%D1%8F%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F/%D0%BF%D1%80%D0%BE%D0%BA%D0%B0%D1%82-%D0%B2%D0%B5%D0%BB%D0%BE%D1%81%D0%B8%D0%BF%D0%B5%D0%B4%D0%BE%D0%B2">Велосипедів</a></li>
+            <li><a href="https://ontop-extreme.com.ua/%D0%BF%D1%80%D0%BE%D0%BA%D0%B0%D1%82-%D1%81%D0%BD%D0%B0%D1%80%D1%8F%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F/%D0%BF%D1%80%D0%B0%D0%B9%D1%81-%D0%BB%D0%B8%D1%81%D1%82-%D0%BF%D1%80%D0%BE%D0%BA%D0%B0%D1%82-%D1%81%D0%BD%D0%B0%D1%80%D1%8F%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F">Туристичного спорядження</a></li>
+          </ul>
+        </div>
+
+        <div>
           <ul class="footer_social_list">
             <li>
-              <a href=""><i class="fab fa-instagram"></i></a>
+              <a href="https://www.instagram.com/ontop_extreme/"><i class="fab fa-instagram"></i></a>
             </li>
             <li>
-              <a href=""><i class="fab fa-facebook-square"></i></a>
+              <a href="https://www.facebook.com/groups/489630721218594/?ref=bookmarks"><i class="fab fa-facebook-square"></i></a>
             </li>
             <li>
               <a href=""><i class="fab fa-telegram-plane"></i></a>
             </li>
             <li>
-              <a href=""><i class="fab fa-google"></i></a>
+              <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to&su=%D0%9D%D0%B0%D1%88%D0%B8+%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D1%8B+-+OnTop+Extreme+Shop,+%D0%9F%D0%BE%D0%BB%D1%82%D0%B0%D0%B2%D0%B0&body=https://ontop-extreme.com.ua/%25D0%25BA%25D0%25BE%25D0%25BD%25D1%2582%25D0%25B0%25D0%25BA%25D1%2582%25D1%258B%23.Xi3u4LLhy6U.gmail&ui=2&tf=1"><i class="fab fa-google"></i></a>
             </li>
           </ul>
         </div>
