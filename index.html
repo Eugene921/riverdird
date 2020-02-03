@@ -78,7 +78,7 @@
             </ul>
           </li>
         </ul>
-        <a id="btn_order" class="tooltip" href="#section_buy"><i class="fas fa-shopping-bag"></i></a>
+        <a id="btn_order" class="tooltip" href="#section_buy"><span id="basket_quantity"></span><i class="fas fa-shopping-bag"></i></a>
         <a id="btn_ask" class="tooltip" href="#question">?</a>
       </nav>
       <div class="header_content">
@@ -92,58 +92,72 @@
           <div class="block_thanks block_thanks_none" id="block_thanks">
             <a id="block_thanks_closse"><i class="fas fa-times"></i></a>
   
-            <h2>Ваш заказ:</h2>
+            <h2>Ваше замовлення:</h2>
             <p id="block_thanks_massage"></p>
-  
-            <br />
             <br />
             <h2>
-              <big>Спасибо за оформление заказа!</big> <br />
-              Наш менеджер свяжется с Вами в ближайшее время.
+              <big>Дякую за оформлення замовлення!</big> <br />
+              Ми зв'яжемося з Вами найближчим часом.
             </h2>
-            <a id="return">Оформить еще заказ <i class="fas fa-reply"></i></a>
+            <a id="return">Оформити ще замовлення <i class="fas fa-reply"></i></a>
           </div>
-          <form class="form_for_buy" action="" method="post" id="form_for_buy">
-            <input id="form_buy_btn_closse" class="form_buy_btn_closse" type="button" value="╳" />
-            <div>
-              <h3>Ваше замовлення:</h3>
-              <p>Байдарка Riverbed в комплекті:</p>
-                <ul style="list-style: disc;">
-                  <li>Байдарка</li>
-                  <li>Насос</li>
-                  <li>Сумка-чохол</li>
-                  <li>Три сидіння</li>
-                  <li>Рем. комплект</li>
-                </ul>
-                <label for="" class="form_product_quantity">Кількість:
-                  <input type="button" value="-" id="product_quantity_remove" />
-                  <span id="product_quantity">1</span>
-                  <input type="button" value="+" id="product_quantity_add" />
-                </label>
+            <form class="form_for_buy" action="" method="post" id="form_for_buy">
+              <input id="form_buy_btn_closse" class="form_buy_btn_closse" type="button" value="╳" />
+              <div>
+                <h3>Ваше замовлення:</h3>
+                <p>Байдарка Riverbed в комплекті:</p>
+                  <ul style="list-style: disc;">
+                    <li>Байдарка</li>
+                    <li>Насос</li>
+                    <li>Сумка-чохол</li>
+                    <li>Три сидіння</li>
+                    <li>Рем. комплект</li>
+                  </ul>
+                  <label for="" class="form_product_quantity">Кількість:
+                    <input type="button" value="-" id="product_quantity_remove" />
+                    <span id="product_quantity">1</span>
+                    <input type="button" value="+" id="product_quantity_add" />
+                  </label>
+                  <p class="product_kayak_cost">Вартість: <span id="product_kayak_cost">0</span></p>
+                <div class="wraper_list_buy_accessories">
+                  <p>Додаткове спорядження:</p>
+                  <ul id="list_buy_accessories">
+                    <li>
+                      <p>Весла</p>
+                      <span>Кількість:</span>
+                      <input type="button" value="-" id="product_paddle_remove" />
+                      <span id="product_paddle_quantity">0</span>
+                      <input type="button" value="+" id="product_paddle_add" />
+                      <p>Вартість: <span id="product_paddle_cost">0</span></p>
+                    </li>
+                    <li>
+                      <p>Гермомішок 70л</p>
+                      <span>Кількість:</span>
+                      <input type="button" value="-" id="product_hermeticBag70_remove" />
+                      <span id="product_hermeticBag70_quantity">0</span>
+                      <input type="button" value="+" id="product_hermeticBag70_add" />
+                      <p>Вартість: <span id="product_hermeticBag70_cost">0</span></p>
+                    </li>
+                    <li>
+                      <p>Гермомішок 10л</p>
+                      <span>Кількість:</span>
+                      <input type="button" value="-" id="product_hermeticBag10_remove" />
+                      <span id="product_hermeticBag10_quantity">0</span>
+                      <input type="button" value="+" id="product_hermeticBag10_add" />
+                      <p>Вартість: <span id="product_hermeticBag10_cost">0</span></p>
+                    </li>
+                  </ul>
+                </div>
 
-              <p>Додаткове спорядження:</p>
-              <ul class="list_buy_accessories">
-                <li><a href="">Дадати</a></li>
-              </ul>
-              <img src="" alt="" class="form_product_img" />
-              <p>Сума: <span id="form_price">16 500</span>грн</p>
-              <br />
-            </div>
-            <label for="buy_name">Прізвище Ім'я</label>
-            <input type="text" name="buy_name" id="buy_name" required />
-  
-            <label for="bay_phone">Номер телефону</label>
-            <input type="let" name="bay_phone" id="bay_phone" required />
-            <label for="city">Місто</label>
-            <input type="text" name="city" id="city" required />
-  
-            <label for="indexWarehouse">Номер відділення Нової Пошти</label>
-            <input type="number" name="indexWarehouse" id="indexWarehouse" required />
-  
-            <input id="form_buy_btn_submit" type="submit" value="Замовити" />
-          </form>
+                <!-- <img src="" alt="" class="form_product_img" /> -->
+                <p>Сума: <span id="form_price">16 500</span> грн</p>
+                <br />
+              </div>
+              <div id="wraper_for_user_data"></div>
+    
+              <input id="form_buy_btn_submit" type="submit" value="Замовити" />
+            </form>
         </div>
-        
       </section>
 
       <section class="description" id="description">
@@ -176,13 +190,13 @@
           <div class="description_img sticky">
             <div id="description_viev_port"></div>
             <ul class="description_bar"  id="description_bar">
-              <li><img src="./src/img/slider1/1.jpg" alt="1" title="0" /></li>
-              <li><img src="./src/img/slider1/2.jpg" alt="2" title="1" /></li>
-              <li><img src="./src/img/slider1/3.jpg" alt="3" title="2" /></li>
-              <li><img src="./src/img/slider1/4.jpg" alt="4" title="3" /></li>
-              <li><img src="./src/img/slider1/5.jpg" alt="5" title="4" /></li>
-              <li><img src="./src/img/slider1/6.jpg" alt="6" title="5" /></li>
-              <li><img src="./src/img/slider1/7.jpg" alt="7" title="6" /></li>
+              <li><img src="./src/img/mainSlider/1.png" alt="1" title="0" /></li>
+              <li><img src="./src/img/mainSlider/2.png" alt="2" title="1" /></li>
+              <li><img src="./src/img/mainSlider/3.jpeg" alt="3" title="2" /></li>
+              <li><img src="./src/img/mainSlider/4.jpeg" alt="4" title="3" /></li>
+              <li><img src="./src/img/mainSlider/5.jpeg" alt="5" title="4" /></li>
+              <li><img src="./src/img/mainSlider/6.jpeg" alt="6" title="5" /></li>
+              <li><img src="./src/img/mainSlider/7.jpeg" alt="7" title="6" /></li>
             </ul>
           </div>
         </div>
@@ -193,15 +207,13 @@
           <div class="specifications_img sticky">
             <div id="specifications_viev_port"></div>
             <ul class="specifications_bar"  id="specifications_bar">
-              <li><img src="./src/img/slider2/1.jpg" alt="1" title="0" /></li>
-              <li><img src="./src/img/slider2/2.jpg" alt="2" title="1" /></li>
-              <li><img src="./src/img/slider2/3.jpg" alt="3" title="2" /></li>
-              <li><img src="./src/img/slider2/4.jpg" alt="4" title="3" /></li>
-              <li><img src="./src/img/slider2/5.jpg" alt="5" title="4" /></li>
-              <li><img src="./src/img/slider2/6.jpg" alt="6" title="5" /></li>
-              <li><img src="./src/img/slider2/7.jpg" alt="7" title="6" /></li>
-              <li><img src="./src/img/slider2/8.jpg" alt="8" title="7" /></li>
-              <li><img src="./src/img/slider2/9.jpg" alt="9" title="8" /></li>
+              <li><img src="./src/img/specificationsSlider/1.jpeg" alt="1" title="0" /></li>
+              <li><img src="./src/img/specificationsSlider/2.jpeg" alt="2" title="1" /></li>
+              <li><img src="./src/img/specificationsSlider/3.jpeg" alt="3" title="2" /></li>
+              <li><img src="./src/img/specificationsSlider/4.jpeg" alt="4" title="3" /></li>
+              <li><img src="./src/img/specificationsSlider/5.jpeg" alt="5" title="4" /></li>
+              <li><img src="./src/img/specificationsSlider/6.jpeg" alt="6" title="5" /></li>
+              <li><img src="./src/img/specificationsSlider/7.jpeg" alt="7" title="6" /></li>
             </ul>
           </div>
 
@@ -247,18 +259,18 @@
                 <h4>Гермомішок 70л</h4>
                 <p>Зручний для сплаву гермомішок для Ваших речей.
                   В комплектації може бути або ручка для переносу, або дві лямки, типу "рюкзак"</p>
-                  <button><span>Додати в </span><i class="fas fa-shopping-bag"></i></button>
+                  <button id="btn_add_hermeticBag70"><span>Додати в </span><i class="fas fa-shopping-bag"></i></button>
               </li>
               <li>
                 <h4>Гермомішок 10л</h4>
                 <p>Зручний для сплаву гермомішок для дрібничок або фото. Ручка регулюється по довжині.</p>
-                <button><span>Додати в </span><i class="fas fa-shopping-bag"></i></button>
+                <button id="btn_add_hermeticBag10"><span>Додати в </span><i class="fas fa-shopping-bag"></i></button>
 
               </li>
               <li>
                 <h4>Весла</h4>
                 <p>Пропонуємо придбати комплект весел для Вашої подорожі.</p>
-                  <button><span>Додати в </span><i class="fas fa-shopping-bag"></i></button>
+                  <button id="btn_add_paddle"><span>Додати в </span><i class="fas fa-shopping-bag"></i></button>
 
               </li>
               <!-- <li>
@@ -272,10 +284,14 @@
           <div class="accessories_img sticky">
             <div id="accessories_viev_port"></div>
             <ul class="accessories_bar" id="accessories_bar">
-              <!-- <li><img src="./src/img/slider3/1.jpg" alt="1" title="0" /></li> -->
-              <li><img src="./src/img/slider3/2.jpg" alt="1" title="0" /></li>
-              <li><img src="./src/img/slider3/3.jpg" alt="2" title="1" /></li>
-              <li><img src="./src/img/slider3/4.jpg" alt="3" title="2" /></li>
+              <li><img src="./src/img/accessoriesSlider/1.png" alt="1" title="0" /></li>
+              <li><img src="./src/img/accessoriesSlider/2.png" alt="2" title="1" /></li>
+              <li><img src="./src/img/accessoriesSlider/3.png" alt="3" title="2" /></li>
+              <li><img src="./src/img/accessoriesSlider/4.jpeg" alt="4" title="3" /></li>
+              <li><img src="./src/img/accessoriesSlider/5.jpeg" alt="5" title="4" /></li>
+              <li><img src="./src/img/accessoriesSlider/6.jpeg" alt="6" title="5" /></li>
+              <li><img src="./src/img/accessoriesSlider/7.jpeg" alt="7" title="6" /></li>
+              <li><img src="./src/img/accessoriesSlider/8.jpeg" alt="8" title="7" /></li>
             </ul>
           </div>
         </div>

@@ -15,7 +15,7 @@
   > div {
     position: relative;
     background-color: #ffffff;
-    width: 50%;
+    width: 80%;
     min-width: 400px;
     margin: 0px auto 200px;
     padding: 0px;
@@ -36,12 +36,20 @@
   h3 {
     color: white;
     font-size: 20px;
-    margin: -25px 0px 30px -60px;
+    margin: -25px 0px 30px -25px;
   }
 
   p {
     margin-top: 25px;
     font-size: 16px;
+  }
+
+  .product_kayak_cost {
+    margin: 0px;
+    #product_kayak_cost {
+      color: white;
+      text-shadow: 0px 0px 1px black;
+    }
   }
 
   ul {
@@ -50,12 +58,13 @@
       margin-left: 15px;
     }
   }
-  .list_buy_accessories {
+  #list_buy_accessories {
     li {
-      a {
-        color: orange;
-        text-shadow: 0px 0px 5px black;
-        text-decoration: none;
+      border-bottom: 1px solid white;
+      width: 170px;
+
+      input[type='button'] {
+        padding: 3px 10px;
       }
     }
   }
@@ -76,14 +85,72 @@
     color: orange;
   }
 
+  .block_thanks_none {
+    display: none;
+  }
+
   .block_thanks {
+    min-height: 500px;
+    width: 100%;
+    padding: 50px 0px 100px;
+    text-align: center;
+
+    #block_thanks_closse{
+      cursor: pointer;
+      position: absolute;
+      right: 20px;
+      top: 15px;
+      font-size: 30px;
+    
+      &:hover{
+        color: white;
+      }
+    }
+
+    .block_thanks_massage{
+      margin: 0px;
+    }
+    #return{
+      cursor: pointer;
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      border: 1px solid black;
+      border-radius: 20px;
+      padding: 15px;
+
+      &:hover{
+        color: white;
+        border-color: white;
+      }
+    }
+
+    h2{
+      font-size: 22px;
+    }
+  }
+
+  .form_for_buy_none {
     display: none;
   }
 
   form {
     margin: 50px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+
+    @media screen and (max-width: 700px) {
+      flex-direction: column;
+    }
+    > div {
+      width: 50%;
+      margin: auto;
+      @media screen and (max-width: 700px) {
+        width: 100%;
+      }
+    }
 
     @media screen and (max-width: 500px) {
       margin: 50px 0px;
@@ -98,30 +165,22 @@
       background-color: #e8f0fe;
       font-size: 16px;
 
-      // &:invalid{
-      //   border-color: rgb(255, 0, 0);
-      // }
-
       &:hover {
-      border-color: $darkBlue;
+        border-color: $darkBlue;
       }
 
       &:focus {
         border-color: orange;
       }
-
-      // &:valid{
-      //   border-color: rgb(0, 255, 42);
-      // }
     }
 
-
     #form_buy_btn_submit {
-      margin-top: 20px;
+      margin: 20px auto 0px;
       background: #162138;
       border-color: orange;
       color: orange;
       box-shadow: 0px 0px 10px -2px #162138;
+      width: 150px;
     }
     #form_buy_btn_submit:hover {
       background: orange;
@@ -133,4 +192,25 @@
       font-size: 15px;
     }
   }
+}
+
+.wraper_list_buy_accessories {
+  #list_buy_accessories {
+    p {
+      margin: 0px;
+      font-size: 13px;
+      span {
+        color: white;
+        text-shadow: 0px 0px 1px black;
+      }
+    }
+    p:first-child {
+      font-size: 18px;
+    }
+  }
+}
+
+#form_price {
+  color: white;
+  text-shadow: 0px 0px 1px black;
 }

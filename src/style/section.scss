@@ -1,6 +1,9 @@
+// main{
+//   overflow: hidden;
+// }
 section {
   width: 100%;
-  padding: 10vh 0px;
+  padding: 0px;
 
   @media screen and (max-width: 600px) {
     padding: 5vh 0px;
@@ -20,7 +23,6 @@ section {
       flex-direction: column;
       align-items: center;
     }
-
     > div {
       width: 50%;
       font-family: 'PT Sans Caption';
@@ -59,7 +61,6 @@ section {
   }
 }
 .description {
-  overflow: hidden;
   background-color: rgb(255, 255, 255);
   background-repeat: no-repeat;
 
@@ -67,24 +68,13 @@ section {
     justify-content: start;
 
     > div {
-      transform: translateX(500px);
-      opacity: 0;
       transition: 1.5s;
       width: 40%;
-      @media screen and (max-width: 600px) {
-        transform: translateX(0px);
-        transition: 1s;
-      }
     }
     > div:first-child {
+      padding: 20vh 0px;
       width: 60%;
-      transform: translateX(-500px);
-      opacity: 0;
       z-index: 10;
-      @media screen and (max-width: 600px) {
-        transform: translateX(0px);
-        width: 100%;
-      }
     }
   }
   .description_img {
@@ -99,7 +89,7 @@ section {
 
   ul {
     list-style: none;
-    li{
+    li {
       margin-bottom: 10px;
     }
   }
@@ -131,23 +121,21 @@ section {
   }
 }
 
-.description_active {
-  overflow: inherit;
-  > div {
-    > div {
-      transform: translate(0px);
-      opacity: 1;
-    }
-    > div:first-child {
-      transform: translate(0px);
-      opacity: 1;
-    }
-  }
-}
+// .description_active {
+//   overflow: inherit;
+//   > div {
+//     > div {
+//       transform: translate(0px);
+//       opacity: 1;
+//     }
+//     > div:first-child {
+//       transform: translate(0px);
+//       opacity: 1;
+//     }
+//   }
+// }
 
 .specifications {
-  overflow: hidden;
-
   background-color: rgb(0, 183, 255);
   background-position: -20% 50%;
   background-repeat: no-repeat;
@@ -155,21 +143,14 @@ section {
 
   > div {
     > div {
-      transform: translateX(500px);
-      opacity: 0;
-      transition: 1.5s;
-      @media screen and (max-width: 600px) {
-        transform: translateX(0px);
-        transition: 1s;
-      }
+      padding: 20vh 0px;
     }
     > div:first-child {
+      padding: 0px;
       width: 70%;
-      transform: translateX(-500px);
-      opacity: 0;
       z-index: 10;
+
       @media screen and (max-width: 600px) {
-        transform: translateX(0px);
         width: 100%;
       }
     }
@@ -241,42 +222,40 @@ section {
     padding-bottom: 40vh;
   }
 }
-.specifications_active {
-  overflow: inherit;
-  > div {
-    > div {
-      transform: translate(0px);
-      opacity: 1;
-    }
-    > div:first-child {
-      transform: translate(0px);
-      opacity: 1;
-    }
-  }
-}
+// .specifications_active {
+//   > div {
+//     > div {
+//       transform: translate(0px);
+//       opacity: 1;
+//     }
+//     > div:first-child {
+//       transform: translate(0px);
+//       opacity: 1;
+//     }
+//   }
+// }
 
 .accessories {
-  overflow: hidden;
   > div {
     > div:first-child {
-      transform: translateX(-500px);
+      padding: 20vh 0px;
       width: 40%;
       max-width: 500px;
       @media screen and (max-width: 600px) {
         width: 100%;
-        transform: translateX(0px);
+        //   transform: translateX(0px);
       }
     }
     > div {
       transition: 1.5s;
-      padding-left: 0px;
-      transform: translateX(500px);
-      opacity: 0;
+
+      // transform: translateX(100px);
+      // opacity: 0;
       z-index: 10;
       @media screen and (max-width: 600px) {
-        transition: 1s;
+        // transition: 1s;
         width: 100%;
-        transform: translateX(0px);
+        // transform: translateX(0px);
         padding: 0px;
       }
     }
@@ -321,6 +300,29 @@ section {
           position: relative;
         }
       }
+      @keyframes click {
+        0% {
+          transform: translateY(0px);
+        }
+        20% {
+          transform: translateY(-10px);
+        }
+        40% {
+          transform: translateY(10px);
+        }
+        60% {
+          transform: translateY(-5px);
+        }
+        80% {
+          transform: translateY(5px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+      .click {
+        animation: 1s click linear;
+      }
     }
     > li:hover {
       border-right: 1px solid rgb(0, 5, 80);
@@ -337,18 +339,17 @@ section {
     padding-bottom: 40vh;
   }
 }
-.accessories_active {
-  overflow: inherit;
-  > div {
-    > div {
-      transform: translate(0px);
-      opacity: 1;
-    }
-    > div:first-child {
-      transform: translate(0px);
-    }
-  }
-}
+// .accessories_active {
+//   > div {
+//     > div {
+//       transform: translate(0px);
+//       opacity: 1;
+//     }
+//     > div:first-child {
+//       transform: translate(0px);
+//     }
+//   }
+// }
 
 .question {
   background-color: $lightBlue;

@@ -4,219 +4,106 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('preloader').classList.remove('preloader');
     }, 200);
   }
-//   const form = document.getElementById('order_form');
 
-//   const productQuantityAdd = document.getElementById('product_quantity_add');
-//   productQuantityAdd.addEventListener('click', () => productQuantity.add() )
+// const form = new APIForn({
+//   elemForm: document.getElementById('form_for_buy'),
+  // botTelegramToken: '1045208272:AAF0mdAKIwIrKhzihkwjPcDYl4f0mxBWWdE',
+  // telegramChatId: '-1001368260472',
+//   apiKeyNovaPoshta: '1d7ec500b0973069fd5bcead06126c5f',
+// })
 
-//   const productQuantityRemove = document.getElementById('product_quantity_remove');
-//   productQuantityRemove.addEventListener('click', () => productQuantity.remove() )
+const botTelegramToken = '1045208272:AAF0mdAKIwIrKhzihkwjPcDYl4f0mxBWWdE';
+const telegramChatId = '-1001368260472';
+const formForBuy = document.getElementById('form_for_buy');
 
-//   const formBuy = document.getElementById('form_for_buy');
-//   const blockThanks = document.getElementById('block_thanks');
+formForBuy.addEventListener('submit', e => {
+  console.log(e.target.children.wraper_for_user_data.children[1].children[1].value);
+  e.preventDefault();
+  const inputCityValue = e.target.children.wraper_for_user_data.children[0].children[1].value;
+  const inputWarehouseValue = e.target.children.wraper_for_user_data.children[1].children[1].value;
+  const city = document.getElementById('form_react_city');
+  const warehouse = document.getElementById('form_react_warehouse');
+  const name = document.getElementById('form_react_name');
+  const tel = document.getElementById('form_react_tel');
+  const email = document.getElementById('form_react_email');
+  const price = document.getElementById('form_price');
 
-//   const token = '1044259808:AAF0EFWvyOUOPGBv69Jvpix1bexbzMLB9aY';
-//   const chatId = "-336008217";
+  const basket = JSON.parse(localStorage.basket);
 
-//   form.addEventListener('submit', e => {
-//     e.preventDefault();
-//     const message = `__________________________%0AУ товарища возник вопрос %0A<b>Имя:</b> ${e.target.name.value}%0A<b>Номер телефона:</b> ${e.target.phone.value}%0A__________________________`;
+  const message = `__________________________%0A<b>Город:</b> ${city !== null ? city.innerText : inputCityValue}%0A<b>Отделение НП:</b> ${warehouse !== null ? warehouse.innerText : inputWarehouseValue}%0A<b>Имя Фамилия:</b> ${name.value}%0A<b>Номер телефона:</b> ${tel.value}%0A<b>Email:</b> ${email.value}%0A<b>Заказ на:</b>%0A${basket.kayak.quantity !== 0 ? `<b>${basket.kayak.name}:</b> ${basket.kayak.quantity} - ${basket.kayak.cost * basket.kayak.quantity} грн %0A` : '' }${basket.paddle.quantity !== 0 ? `<b>${basket.paddle.name}:</b> ${basket.paddle.quantity} - ${basket.paddle.cost * basket.paddle.quantity} грн %0A` : '' }${basket.hermeticBag70.quantity !== 0 ? `<b>${basket.hermeticBag70.name}:</b> ${basket.hermeticBag70.quantity} - ${basket.hermeticBag70.cost * basket.hermeticBag70.quantity} грн %0A` : '' }${basket.hermeticBag10.quantity !== 0 ? `<b>${basket.hermeticBag10.name}:</b> ${basket.hermeticBag10.quantity} - ${basket.hermeticBag10.cost * basket.hermeticBag10.quantity} грн %0A` : '' }<b>Общая Стоимость:</b> ${price.innerText} грн %0A_______________________________`;
+  // const message = `__________________________%0A
+  // <b>Город:</b> ${city !== null ? city.innerText : inputCityValue}%0A
+  // <b>Отделение НП:</b> ${warehouse !== null ? warehouse.innerText : inputWarehouseValue}%0A
 
-//     fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&parse_mode=html&text=${message}`)
-//       .then((res) => {
-//         console.log(res.json());
-//       })
-//       .catch((error) => {
-//         console.log(error);
-//       });
-      
-//   });
+  // <b>Имя Фамилия:</b> ${name.value}%0A
+  // <b>Номер телефона:</b> ${tel.value}%0A
+  // <b>Email:</b> ${email.value}%0A
+  // <b>Заказ на:</b>%0A
+  // ${basket.kayak.quantity !== 0 ? `<b>${basket.kayak.name}:</b> ${basket.kayak.quantity} - ${basket.kayak.cost * basket.kayak.quantity} грн %0A` : '' }
+  // ${basket.paddle.quantity !== 0 ? `<b>${basket.paddle.name}:</b> ${basket.paddle.quantity} - ${basket.paddle.cost * basket.paddle.quantity} грн %0A` : '' }
+  // ${basket.hermeticBag70.quantity !== 0 ? `<b>${basket.hermeticBag70.name}:</b> ${basket.hermeticBag70.quantity} - ${basket.hermeticBag70.cost * basket.hermeticBag70.quantity} грн %0A` : '' }
+  // ${basket.hermeticBag10.quantity !== 0 ? `<b>${basket.hermeticBag10.name}:</b> ${basket.hermeticBag10.quantity} - ${basket.hermeticBag10.cost * basket.hermeticBag10.quantity} грн %0A` : '' }
 
+  // <b>Общая Стоимость:</b> ${price.innerText} грн %0A
+  // _______________________________`;
 
+  fetch(`https://api.telegram.org/bot${botTelegramToken}/sendMessage?chat_id=${telegramChatId}&parse_mode=html&text=${message}`)
+    .then((res) => {
+      formForBuy.classList.add('form_for_buy_none');
+      const blockThanks = document.getElementById('block_thanks');
+      blockThanks.classList.remove('block_thanks_none');
+      document.getElementById('block_thanks_massage').innerHTML = `
+            <big>${city !== null ? city.innerText : inputCityValue}</big> <br>
+            <big>${warehouse !== null ? warehouse.innerText : inputWarehouseValue}</big> <br>
+            Прізвище Ім'я:&emsp; <big>${name.value}</big> <br>
+            Номер телефону:&emsp; <big>${tel.value}</big> <br>
+            Email:&emsp; <big>${email.value}</big> <br>
+            <hr/>
 
-//   class ProductQuantity {
-//     constructor(option) {
-//       this.onChange = option.onChange;
-//       this.onChangeSelectSize = option.onChangeSelectSize;
-//       this.onChangeSelectSizePants = option.onChangeSelectSizePants;
+            ${basket.kayak.quantity !== 0 ? `<big>${basket.kayak.name}:</big>&emsp; <br/>
+            <br/>
+            Байдарка Riverbіrd комплект: <br>
+                Байдарка <br>
+                Насос <br>
+                Три сидіння <br>
+                Сумка-чохол <br>
+                Рем. комплект <br>
 
-//       this.quantity = 1;
+            Кількість:&emsp; <big>${basket.kayak.quantity}</big>
+            Bартість:&emsp; <big>${basket.kayak.cost * basket.kayak.quantity} грн </big><hr/>` : '' }
 
-//       this.listSize = ['S', 'M', 'L', 'XL'];
-//       this.chosenSize = [];
-//       this.chosenSizePants = [];
+            ${basket.paddle.quantity !== 0 ? `<big>${basket.paddle.name}:</big> <br/>
+            Кількість:&emsp; <big>${basket.paddle.quantity}</big> <br/>
+            Bартість:&emsp; <big>${basket.paddle.cost * basket.paddle.quantity} грн </big><hr/>` : '' }
 
-//       this.selectSize = this.selectSize.bind(this);
-//       this.selectSizePants = this.selectSizePants.bind(this);
+            ${basket.hermeticBag70.quantity !== 0 ? `<big>${basket.hermeticBag70.name}:</big> <br/>
+            Кількість:&emsp; <big>${basket.hermeticBag70.quantity}</big> <br/>
+            Bартість:&emsp; <big>${basket.hermeticBag70.cost * basket.hermeticBag70.quantity} грн </big><hr/>` : '' }
 
-//       option.drawListSize(this.listSize);
-//       option.addListenerOnList(this.selectSize, this.selectSizePants);
-//     }
+            ${basket.hermeticBag10.quantity !== 0 ? `<big>${basket.hermeticBag10.name}:</big> <br/>
+            Кількість:&emsp; <big>${basket.hermeticBag10.quantity}</big> <br/>
+            Bартість:&emsp; <big>${basket.hermeticBag10.cost * basket.hermeticBag10.quantity} грн </big><hr/>` : '' }
+            <br/>
+            Загальна вартість:&emsp; <big>${price.innerText} грн</big> <br>`;
 
-//     selectSizePants(size) {
-//       this.chosenSizePants.unshift(size);
+        document.getElementById('block_thanks_closse').addEventListener('click', () => {
+          blockThanks.classList.add('block_thanks_none');
+          formForBuy.classList.remove('form_for_buy_none');
+          document.getElementById('section_buy').classList.add('section_buy_closse');
+        })
 
-//       this.chosenSizePants = this.chosenSizePants.slice(0, this.quantity);
+        document.getElementById('return').addEventListener('click', () => {
+          blockThanks.classList.add('block_thanks_none');
+          formForBuy.classList.remove('form_for_buy_none');
+        })
 
-//       this.onChangeSelectSizePants(this.chosenSizePants);
-//     }
+        localStorage.removeItem('basket');
+    })
+    .catch((error) => {
+      alert(error);
+    });
+});
 
-//     selectSize(size) {
-//       this.chosenSize.unshift(size);
-
-//       this.chosenSize = this.chosenSize.slice(0, this.quantity);
-
-//       this.onChangeSelectSize(this.chosenSize);
-//     }
-
-//     add() {
-//       this.quantity += 1;
-//       this.saveCheange();
-//     }
-
-//     remove() {
-//       this.quantity -= this.quantity - 1 ? 1 : 0;
-
-//       this.chosenSizePants.pop();
-//       this.chosenSize.pop();
-
-//       this.saveCheange();
-//     }
-
-//     saveCheange() {
-//       this.onChange(this.quantity);
-
-//       this.onChangeSelectSizePants(this.chosenSizePants);
-//       this.onChangeSelectSize(this.chosenSize);
-//     }
-//   }
-
-//   const elemListSize = document.getElementById('form_list_size');
-//   const elemListSizePants = document.getElementById('form_list_size_pants');
-
-//   const elemQuantity = document.getElementById('product_quantity');
-//   const formPrice = document.getElementById('form_price');
-//   const sectionBuy = document.getElementById('section_buy');
-
-
-//   document.getElementById('btn_buy').addEventListener('click', () => {
-//     sectionBuy.classList.add('section_buy_active');
-//     formBuy.classList.remove('form_for_buy_none');
-//   })
-
-//   document.getElementById('form_buy_btn_closse').addEventListener('click', () => {
-//     sectionBuy.classList.remove('section_buy_active');
-//   })
-
-//   const productQuantity = new ProductQuantity({
-//     onChange: (quantity) => {
-//       elemQuantity.innerHTML = quantity;
-//       formPrice.innerHTML = quantity * 699;
-//     },
-//     drawListSize: (listSize) => {
-//       listSize.forEach((elem) => {
-//         elemListSize.innerHTML += `<li>${elem}</li>`;
-//         elemListSizePants.innerHTML += `<li>${elem}</li>`;
-//       });
-//     },
-//     addListenerOnList: (func, funcPants) => {
-//         for (let i = 0; i < elemListSize.children.length; i++) {
-//         elemListSize.children[i].addEventListener('click', e => func(e.target.innerHTML));
-//         elemListSizePants.children[i].addEventListener('click', e => funcPants(e.target.innerHTML));;
-//       }
-//     },
-//     onChangeSelectSize: arrSelect => {
-//       for (let i = 0; i < elemListSize.children.length; i++) {
-//         elemListSize.children[i].classList.remove('form_item_size_active');
-//       }
-
-//       arrSelect.forEach(elem => {
-//         for (let i = 0; i < elemListSize.children.length; i++) {
-//           const elemItemSize = elemListSize.children[i];
-
-//           if(elemItemSize.innerHTML === elem) {
-//             elemItemSize.classList.add('form_item_size_active');
-//           };
-//         }
-//       });
-
-//     },
-//     onChangeSelectSizePants: arrSelect => {
-//       for (let i = 0; i < elemListSizePants.children.length; i++) {
-//         elemListSizePants.children[i].classList.remove('form_item_size_active');
-//       }
-
-//       arrSelect.forEach(elem => {
-//         for (let i = 0; i < elemListSizePants.children.length; i++) {
-//           const elemItemSize = elemListSizePants.children[i];
-
-//           if(elemItemSize.innerHTML === elem) {
-//             elemItemSize.classList.add('form_item_size_active');
-//           };
-//         }
-//       });
-
-//     }
-//   });
-
-
-//   formBuy.addEventListener('submit', e => {
-//     e.preventDefault();
-//     const message = `__________________________%0A<b>Имя Фамилия:</b> ${e.target.buy_name.value}%0A<b>Номер телефона:</b> ${e.target.bay_phone.value}%0A<b>Город:</b> ${e.target.city.value}%0A<b>Отделение НП:</b> ${e.target.indexWarehouse.value}%0A<b>Количество:</b> ${productQuantity.quantity}%0A<b>Размер худи:</b> ${productQuantity.chosenSize.toString()}%0A<b>Размер штанов:</b> ${productQuantity.chosenSizePants.toString()}%0A<b>Стоимость:</b> ${formPrice.innerText}%0A_______________________________`;
-
-//     fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&parse_mode=html&text=${message}`)
-//       .then((res) => {
-//         formBuy.classList.add('form_for_buy_none');
-//         blockThanks.classList.remove('block_thanks_none');
-//         document.getElementById('block_thanks_massage').innerHTML = `
-//               Имя Фамилия:&emsp; <big>${e.target.buy_name.value}</big> <br>
-//               Номер телефона:&emsp; <big>${e.target.bay_phone.value}</big> <br>
-//               Город:&emsp; <big>${e.target.city.value}</big> <br>
-//               № Отделение Новой Почты:&emsp; <big>${e.target.indexWarehouse.value}</big> <br>
-//               Количество:&emsp; <big>${productQuantity.quantity}</big> <br>
-//               Размер штанов:&emsp; <big>${productQuantity.chosenSizePants.toString()}</big> <br>
-//               Размер худи:&emsp; <big>${productQuantity.chosenSize.toString()}</big> <br>
-//               Стоимость:&emsp; <big>${formPrice.innerText} грн</big> <br>`;
-
-//           document.getElementById('block_thanks_closse').addEventListener('click', () => {
-//             blockThanks.classList.add('block_thanks_none');
-//             document.getElementById('section_buy').classList.remove('section_buy_active');
-//           })
-
-//           document.getElementById('return').addEventListener('click', () => {
-//             blockThanks.classList.add('block_thanks_none');
-//             formBuy.classList.remove('form_for_buy_none');
-//           })
-//       })
-//       .catch((error) => {
-//         alert(error);
-//       });
-      
-//   });
-
-// document.getElementById('body').addEventListener('click', (e) => {
-//   if(e.target.id === 'phone_menu' || e.target.id === 'btn_phone_menu' ) {
-//   } else {
-//     console.log('closse');
-//     phoneMenu.classList.remove('phone_menu_active');
-//     btnMenu.classList.remove('btn_phone_menu_active');
-//   };
-// });
-
-// section_buy{
-
-  // console.dir(window.innerHeight);
-  // console.dir(window.outerHeight);
-  // console.dir(window.clientHeight);
-
-  // console.dir(elem);
-  // console.log(elem.clientHeight);
-  // console.log(elem.offsetTop);
-  // console.log(elem.classList);
-  // console.log(elem.id);
-  // console.log((elem.clientHeight + elem.offsetTop) - (window.scrollY + 81));
-  // console.log(window.scrollY + window.innerHeight - elem.offsetTop);
-  // console.log('             ');
   const
       headlineQuestion = document.getElementById('headline_question'),
       orderForm = document.getElementById('order_form'),
@@ -241,11 +128,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 window.onscroll = () => {
     isVisible(headlineQuestion);
-    isVisible(description);
+//     isVisible(description);
     isVisible(headline);
     isVisible(orderForm);
-    isVisible(accessories);
-    isVisible(specifications);
+//     isVisible(accessories);
+//     isVisible(specifications);
 }
 
 
@@ -340,3 +227,5 @@ btnClosseBuy.addEventListener('click', () => {
 import './slider';
 import './API_form';
 import '../style/base.scss';
+import '../../index';
+import './basket';

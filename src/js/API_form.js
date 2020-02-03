@@ -346,9 +346,3 @@ const form = new APIForn({
   telegramChatId: '-1001368260472',
 });
 
-// const form = new APIForn({
-//   elemForm: document.getElementById('form_for_buy'),
-//   botTelegramToken: '1045208272:AAF0mdAKIwIrKhzihkwjPcDYl4f0mxBWWdE',
-//   telegramChatId: '-1001368260472',
-//   apiKeyNovaPoshta: '1d7ec500b0973069fd5bcead06126c5f',
-// })
