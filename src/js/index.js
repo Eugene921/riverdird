@@ -1,9 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  window.onload = () => {
-    setTimeout(() => {
-      document.getElementById('preloader').classList.remove('preloader');
-    }, 200);
-  }
+  document.getElementById('preloader').classList.remove('preloader');
+
 
 // const form = new APIForn({
 //   elemForm: document.getElementById('form_for_buy'),

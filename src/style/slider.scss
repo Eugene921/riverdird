@@ -38,12 +38,27 @@
         width: auto;
         max-width: 100%;
         margin: 0px auto;
-        margin-left: calc(50% - 200px)
+        margin-left: calc(50% - 200px);
+
+        .main_slider_1 {
+          width:auto;
+          margin-left: 70px;
+        }
       }
       @media screen and (max-width: 450px) {
         height: 40vh;
         width: 100%;
         margin-left: 0px;
+      }
+    }
+    @media screen and (max-width: 600px) {
+      .main_slider_1 {
+        width: auto;
+        margin-left: 50px;
+      }
+      .accessories_slider_img{
+        width: auto;
+        margin-left: 75px;
       }
     }
     .slider_view {
