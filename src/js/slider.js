@@ -35,10 +35,8 @@ class APIslider {
   }
 
   addListenerForanchorBar() {
-    console.log(this.anchorBar);
     for (let i = 0; i < this.anchorBar.length; i++) {
       this.anchorBar[i].addEventListener('mouseenter', e => {
-        console.log(e.target.id.slice(-1))
         this.goTo(e.target.id.slice(-1));
       });
     };

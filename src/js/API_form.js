@@ -86,22 +86,22 @@ class APIForn {
       if (this.elemCity) message += `<b>${this.elemCity.placeholder}:</b> ${this.elemCity.value}%0A`;
       if (this.elemWarehouseIndex) message += `<b>${this.elemWarehouseIndex.placeholder}:</b> ${this.elemWarehouseIndex.value}%0A`;
       if (this.elemDescription) message += `<b>${this.elemDescription.placeholder}:</b> ${this.elemDescription.value}%0A`;
-      console.log(message);
-      // fetch(`https://api.telegram.org/bot${this.botTelegramToken}/sendMessage?chat_id=${this.telegramChatId}&parse_mode=html&text=${message}`);
-        // .then((res) => {
-        //   form.innerHTML = `<h2 style="color: white;">
-        //   <big>Спасибо за оформление заявки!</big> <br />
-        //   Наш менеджер свяжется с Вами в ближайшее время.
-        //   </h2>`;
-        // })
-        // .catch((error) => {
-        //   form.innerHTML = `
-        //   <h2 style="color: white;">Извините, что-то пошло не так </h2><br />
-        //   <h3 style="color: white; font-size: 20px;">Попробуйте повторить попытку чуть позже или связаться с нами по контактам</h3><br />
-        //   <br />
-        //   <h3>Kод ошибки: ${error.code}</h3>
-        //   <p>${error}</p>`;
-        // });
+
+      fetch(`https://api.telegram.org/bot${this.botTelegramToken}/sendMessage?chat_id=${this.telegramChatId}&parse_mode=html&text=${message}`)
+        .then((res) => {
+          form.innerHTML = `<h2 style="color: white;">
+          <big>Спасибо за оформление заявки!</big> <br />
+          Наш менеджер свяжется с Вами в ближайшее время.
+          </h2>`;
+        })
+        .catch((error) => {
+          form.innerHTML = `
+          <h2 style="color: white;">Извините, что-то пошло не так </h2><br />
+          <h3 style="color: white; font-size: 20px;">Попробуйте повторить попытку чуть позже или связаться с нами по контактам</h3><br />
+          <br />
+          <h3>Kод ошибки: ${error.code}</h3>
+          <p>${error}</p>`;
+        });
     })
   }
 
@@ -150,8 +150,6 @@ class APIForn {
     listCitiesNP.map(city => {
       const elemOption = document.createElement('option');
       elemOption.value = city.Present;
-
-      console.log(city.DeliveryCity);
 
       this.listRefCities.push(city.DeliveryCity);
 
@@ -249,8 +247,6 @@ class APIForn {
 
     if (this.apiKeyNovaPoshta) { 
       this.createElemListCity();
-
-      this.elemCity.addEventListener('onChange', () => console.log('change'));
       
       this.elemCity.addEventListener('input', async () => {
         const regexp = /[а-яё]+$/i;

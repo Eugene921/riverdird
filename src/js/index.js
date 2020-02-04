@@ -14,7 +14,6 @@ const telegramChatId = '-1001368260472';
 const formForBuy = document.getElementById('form_for_buy');
 
 formForBuy.addEventListener('submit', e => {
-  console.log(e.target.children.wraper_for_user_data.children[1].children[1].value);
   e.preventDefault();
   const inputCityValue = e.target.children.wraper_for_user_data.children[0].children[1].value;
   const inputWarehouseValue = e.target.children.wraper_for_user_data.children[1].children[1].value;
