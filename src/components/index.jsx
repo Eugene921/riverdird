@@ -68,7 +68,7 @@ import InputEmail from './input_email';
           patternOfInputCity={reduxState.patternOfInputCity}
           listCities={reduxState.listCities}
           disabled={false}
-          required={true}
+          required={false}
         />
         <InputWarehouse
           inputWarehouseValue={reduxState.inputWarehouseValue}
@@ -77,7 +77,7 @@ import InputEmail from './input_email';
           getWarehousesFromServer = {getWarehousesFromServer}
           disabled={reduxState.listCities.length !== 1}
           listWarehouses={reduxState.listWarehouses}
-          required={true}
+          required={false}
         />
 
         <InputTel 

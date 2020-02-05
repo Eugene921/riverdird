@@ -5,7 +5,8 @@
   "main": "./src/js/index.js",
   "scripts": {
     "dev": "parcel index.html",
-    "build": "parcel build index.html --out-dir ./view/ --public-url /riverbird/view/",
+    "buildGit": "parcel build index.html --out-dir ./view/ --public-url /riverbird/view/",
+    "build": "parcel build index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [

@@ -149,7 +149,11 @@
 
       #logo {
         img {
-          width: 70px;
+          width: 60px;
+          position: relative;
+          top: 2px;
+          background-color: rgba(0, 4, 44, 0.3);
+          border-radius: 50%;
         }
         @media screen and (max-width: 1000px) {
           position: absolute;
@@ -274,18 +278,19 @@
       border-radius: 50px;
       border-bottom-right-radius: 0px;
       width: 145px;
-      left: -180px;
-      bottom: 120px;
+      left: -170px;
+      bottom: 110px;
 
       font-size: 13px;
       background-color: white;
 
       @media screen and (max-width: 500px) {
+        display: none;
         padding: 10px 15px;
         line-height: 13px;
         font-size: 11px;
-        left: -85px;
-        bottom: 140px;
+        left: -75px;
+        bottom: 130px;
         width: min-content;
       }
     }
