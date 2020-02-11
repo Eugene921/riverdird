@@ -6,17 +6,17 @@ let basket = {
   },
   paddle: {
     name: 'Весла',
-    cost: 100,
+    cost: 280,
     quantity: 0,
   },
   hermeticBag70: {
-    name: 'Гермомішок 70л',
-    cost: 10,
+    name: 'Гермомішок 60л',
+    cost: 600,
     quantity: 0,
   },
   hermeticBag10: {
     name: 'Гермомішок 10л',
-    cost: 1,
+    cost: 400,
     quantity: 0,
   }
 };
@@ -69,8 +69,12 @@ const updateListAccessories = () => {
   document.getElementById('product_hermeticBag10_cost').innerHTML = basket.hermeticBag10.quantity === 0 ? basket.hermeticBag10.cost : basket.hermeticBag10.quantity * basket.hermeticBag10.cost;
 }
 
-document.getElementById('btn_add_paddle').addEventListener('click', () => {
+const btnAddPaddle = document.getElementById('btn_add_paddle');
+btnAddPaddle.addEventListener('click', () => {
   basket.paddle.quantity += 1;
+
+  btnAddPaddle.classList.add('click');
+  setTimeout(() => btnAddPaddle.classList.remove('click'), 2000);
   updateBasket();
 });
 document.getElementById('product_paddle_add').addEventListener('click', () => {
@@ -82,9 +86,12 @@ document.getElementById('product_paddle_remove').addEventListener('click', () =>
   updateBasket();
 });
 
-
-document.getElementById('btn_add_hermeticBag70').addEventListener('click', () => {
+const btnAddHermeticBag70 = document.getElementById('btn_add_hermeticBag70');
+btnAddHermeticBag70.addEventListener('click', () => {
   basket.hermeticBag70.quantity += 1;
+
+  btnAddHermeticBag70.classList.add('click');
+  setTimeout(() => btnAddHermeticBag70.classList.remove('click'), 2000);
   updateBasket();
 });
 document.getElementById('product_hermeticBag70_add').addEventListener('click', () => {
@@ -104,6 +111,7 @@ btnAddHermeticBag10.addEventListener('click', () => {
   setTimeout(() => btnAddHermeticBag10.classList.remove('click'), 2000);
   updateBasket();
 });
+
 document.getElementById('product_hermeticBag10_add').addEventListener('click', () => {
   basket.hermeticBag10.quantity += 1;
   updateBasket();
@@ -112,12 +120,6 @@ document.getElementById('product_hermeticBag10_remove').addEventListener('click'
   if(basket.hermeticBag10.quantity > 0) basket.hermeticBag10.quantity -= 1;
   updateBasket();
 });
-
-
-// document.getElementById('form_for_buy').addEventListener('submit', () => {
-//   localStorage.removeItem('basket');
-//   updateBasket();
-// });
 
 document.getElementById('btn_order').addEventListener('click', () => {
   if(basket.kayak.quantity === 0) basket.kayak.quantity = 1;

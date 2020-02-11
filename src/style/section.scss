@@ -1,6 +1,3 @@
-// main{
-//   overflow: hidden;
-// }
 section {
   width: 100%;
   padding: 0px;
@@ -127,20 +124,6 @@ section {
   }
 }
 
-// .description_active {
-//   overflow: inherit;
-//   > div {
-//     > div {
-//       transform: translate(0px);
-//       opacity: 1;
-//     }
-//     > div:first-child {
-//       transform: translate(0px);
-//       opacity: 1;
-//     }
-//   }
-// }
-
 .specifications {
   background-color: rgb(0, 183, 255);
   background-position: -20% 50%;
@@ -195,7 +178,7 @@ section {
 
           margin-bottom: 40px;
 
-          big {
+          span {
             font-size: 16px;
             margin-right: 10px;
             color: black;
@@ -228,19 +211,6 @@ section {
     padding-bottom: 40vh;
   }
 }
-// .specifications_active {
-//   > div {
-//     > div {
-//       transform: translate(0px);
-//       opacity: 1;
-//     }
-//     > div:first-child {
-//       transform: translate(0px);
-//       opacity: 1;
-//     }
-//   }
-// }
-
 .accessories {
   > div {
     > div:first-child {
@@ -249,19 +219,13 @@ section {
       max-width: 500px;
       @media screen and (max-width: 600px) {
         width: 100%;
-        //   transform: translateX(0px);
       }
     }
     > div {
       transition: 1.5s;
-
-      // transform: translateX(100px);
-      // opacity: 0;
       z-index: 10;
       @media screen and (max-width: 600px) {
-        // transition: 1s;
         width: 100%;
-        // transform: translateX(0px);
         padding: 0px;
       }
     }
@@ -308,26 +272,58 @@ section {
       }
       @keyframes click {
         0% {
-          transform: translateY(0px);
+          transform: translateY(-15px);
         }
         20% {
-          transform: translateY(-10px);
-        }
-        40% {
           transform: translateY(10px);
         }
-        60% {
+        40% {
           transform: translateY(-5px);
         }
+        60% {
+          transform: translateY(3px);
+        }
         80% {
-          transform: translateY(5px);
+          transform: translateY(-1px);
         }
         100% {
           transform: translateY(0px);
         }
       }
+
+      @keyframes clickMarck {
+        0% {  
+          height: 0px;
+          width: 0px;
+        }
+        20% {
+          height: 8px;
+          width: 0px;
+        }
+        100% {
+          height: 8px;
+          width: 13px;
+        }
+      }
+
+      .click i::after{
+        content: '';
+        display: block;
+        border: 3px solid white;
+        border-top: transparent;
+        border-right: transparent;
+        position: absolute;
+        transform: rotate(-45deg);
+        left: 3px;
+        top: 8px;
+        animation: 1s clickMarck ease-in-out forwards;
+      }
       .click {
-        animation: 1s click linear;
+        i {
+          font-size: 25px;
+          position: relative;
+          animation: 1s click linear;
+        }
       }
     }
     > li:hover {
@@ -345,17 +341,6 @@ section {
     padding-bottom: 40vh;
   }
 }
-// .accessories_active {
-//   > div {
-//     > div {
-//       transform: translate(0px);
-//       opacity: 1;
-//     }
-//     > div:first-child {
-//       transform: translate(0px);
-//     }
-//   }
-// }
 
 .question {
   background-color: $lightBlue;
@@ -377,7 +362,7 @@ section {
     max-width: 500px;
 
     div {
-      h2 {
+      > h2 {
         line-height: 40px;
         margin-bottom: 50px;
         margin-left: 0px;
@@ -402,6 +387,10 @@ section {
         transform: translateY(200px);
         opacity: 0;
         transition: 2s;
+
+        p{
+          color: white;
+        }
       }
 
       .order_form_active {

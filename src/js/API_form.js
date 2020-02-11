@@ -31,15 +31,10 @@ class APIForn {
     this.elemPhoneNumber = props.elemPhoneNumber || this.elemForm.querySelector('input[type="tel"]') || false;
     this.elemEmail = props.elemEmail || this.elemForm.querySelector('input[type="email"]') || false;
     this.elemName = props.elemName || this.elemForm.querySelector('input[name="name"]') || false;
-    // this.elemArea = props.elemArea || this.elemForm.querySelector('input[name="area"]') || false;
     this.elemCity = props.elemCity || this.elemForm.querySelector('input[name="city"]') || false;
     this.elemWarehouseIndex = props.elemWarehouseIndex || this.elemForm.querySelector('input[name="warehouseIndex"]') || false;
     this.elemDescription = props.elemDescription || this.elemForm.querySelector('textarea') || false;
 
-    // this.elemBtnSubmit = props.elemBtnSubmit || this.elemForm.querySelector('input[type="submit"]') || false;
-
-    // this.inputEmail = this.elemForm.querySelector('input[type="email"]') || null;
-    // this.input = props.inputPhoneNumber;
     this.botTelegramToken = props.botTelegramToken || false;
     this.telegramChatId = props.telegramChatId || false;
 
@@ -78,8 +73,7 @@ class APIForn {
   addListnerOnSubmit() {
     this.elemForm.addEventListener('submit', e => {
       e.preventDefault();
-
-      let message = `____________________%0A${this.headLineTelegram} %0A%0A`;
+      let message = `____________________%0A`;
       if (this.elemPhoneNumber) message += `<b>${this.elemPhoneNumber.placeholder}:</b> ${this.elemPhoneNumber.value}%0A`;
       if (this.elemEmail) message += `<b>${this.elemEmail.placeholder}:</b> ${this.elemEmail.value}%0A`;
       if (this.elemName) message += `<b>${this.elemName.placeholder}:</b> ${this.elemName.value}%0A`;
@@ -87,17 +81,18 @@ class APIForn {
       if (this.elemWarehouseIndex) message += `<b>${this.elemWarehouseIndex.placeholder}:</b> ${this.elemWarehouseIndex.value}%0A`;
       if (this.elemDescription) message += `<b>${this.elemDescription.placeholder}:</b> ${this.elemDescription.value}%0A`;
 
+    console.log(message);
+    
       fetch(`https://api.telegram.org/bot${this.botTelegramToken}/sendMessage?chat_id=${this.telegramChatId}&parse_mode=html&text=${message}`)
         .then((res) => {
-          form.innerHTML = `<h2 style="color: white;">
-          <big>Спасибо за оформление заявки!</big> <br />
-          Наш менеджер свяжется с Вами в ближайшее время.
-          </h2>`;
+          this.elemForm.innerHTML = `
+          <h2 style="color: white;"> Дякую за оформлення заявки!</h2>
+          <p>Наш менеджер зв'яжеться з Вами найближчим часом.</p>`;
         })
         .catch((error) => {
-          form.innerHTML = `
-          <h2 style="color: white;">Извините, что-то пошло не так </h2><br />
-          <h3 style="color: white; font-size: 20px;">Попробуйте повторить попытку чуть позже или связаться с нами по контактам</h3><br />
+          this.elemForm.innerHTML = `
+          <h2 style="color: white;">Вибачте, щось пішло не так </h2><br />
+          <h3 style="color: white; font-size: 20px;">Спробуйте повторити спробу трохи пізніше або зв'язатися з нами за контактами</h3><br />
           <br />
           <h3>Kод ошибки: ${error.code}</h3>
           <p>${error}</p>`;
@@ -242,7 +237,6 @@ class APIForn {
 
   initiatoryStateCity() {
     this.elemCity.pattern = '[^0-9A-Za-z]{1,3}\\.[^0-9A-Za-z]{2,}';
-    // this.elemCity.validity.valid = true;
     this.elemCity.title = 'Впишіть назву вашого населеного пункту і виберіть один із запропонованих варіантів';
 
     if (this.apiKeyNovaPoshta) { 
@@ -297,15 +291,6 @@ class APIForn {
     });
   }
 
-  // initiatoryStateArea() {
-  //   this.elemArea.pattern = '[А-Яа-яЁё\\s]{2,}';
-
-  //   this.elemArea.addEventListener('input', () => {
-  //     APIForn.addValidColor(this.elemArea);
-  //   });
-  // }
-
-
   inut() {
     if (this.elemPhoneNumber) {
       this.initiatoryStatePhoneNumber();
@@ -330,9 +315,6 @@ class APIForn {
       this.initiatoryStateWarehouseIndex();
           this.elemWarehouseIndex.disabled = true;
     }
-    // if(this.elemArea) {
-    //   this.initiatoryStateArea();
-    // }
   }
 }
 

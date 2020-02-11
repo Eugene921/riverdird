@@ -136,16 +136,9 @@ formForBuy.addEventListener('submit', e => {
 
 window.onscroll = () => {
     isVisible(headlineQuestion);
-//     isVisible(description);
     isVisible(headline);
     isVisible(orderForm);
-//     isVisible(accessories);
-//     isVisible(specifications);
 }
-
-
-// phone_btn_order
-// btn_order
 
 // section_buy
 const btnAsk = document.getElementById('btn_ask');
@@ -193,8 +186,6 @@ const postAlert = () => {
 }
 
 postAlert();
-
-
 
 //###################### section buy ##############################
 const sectionBuy = document.getElementById('section_buy');
